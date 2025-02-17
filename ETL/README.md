@@ -88,7 +88,10 @@ FROM propiedades
 GROUP BY code
 HAVING total > 1;
 
-Resultado: En el proceso de Preprocesamiento se evidenciaron duplicados y para eso se genero un condicional que se inserte un usuario si no existe, es decir solo se ingesta si no existe.
+Resultado: 
+
+No, no debería haber códigos duplicados en la tabla propiedades. Esto se debe a que el campo code en la tabla propiedades está definido como único (UNIQUE) en la estructura de la base de datos. Además, durante el proceso de preprocesamiento y transformación de datos, se implementó una lógica para evitar la inserción de registros duplicados.
+El campo code en la tabla propiedades tiene una restricción UNIQUE, lo que garantiza que no puedan existir dos registros con el mismo valor en este campo. Si se intenta insertar un código duplicado, la base de datos lanzará un error y rechazará la inserción.
 
 ## Manejo de Errores
 El proyecto incluye manejo de errores para:
