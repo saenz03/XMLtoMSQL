@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_habi
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: habi_db
+      MYSQL_USER: habi_user
+      MYSQL_PASSWORD: habi_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - habi_network
+
+  etl:
+    build: .
+    container_name: etl_habi
+    depends_on:
+      - mysql
+    networks:
+      - habi_network
+    #volumes:
+    #  - ./src:/app
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: habi_user
+      MYSQL_PASSWORD: habi_pass
+      MYSQL_DATABASE: habi_db
+    command: ["python", "/app/pipeline.py"]
+
+volumes:
+  mysql_data:
+
+networks:
+  habi_network:
