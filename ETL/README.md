@@ -77,7 +77,7 @@ FROM propiedades
 GROUP BY code
 HAVING total > 1;
 
-
+Resultado: En el proceso de Preprocesamiento se evidenciaron duplicados y para eso se genero un condicional que se inserte un usuario si no existe, es decir solo se ingesta si no existe.
 
 ## Manejo de Errores
 El proyecto incluye manejo de errores para:
