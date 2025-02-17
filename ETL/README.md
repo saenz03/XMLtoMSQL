@@ -18,8 +18,8 @@ Este proyecto implementa un pipeline ETL (Extract, Transform, Load) en Python ut
 Clona el repositorio en tu máquina local:
 
 
-git clone https://github.com/tu-usuario/etl-habi.git
-cd etl-habi
+git clone https://github.com/tu-usuario/XMLtoMSQL.git
+
 
 ## Construir y Ejecutar los Contenedores
 Ejecuta el siguiente comando para construir y levantar los contenedores:
