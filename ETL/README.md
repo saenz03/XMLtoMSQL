@@ -49,6 +49,17 @@ FROM usuarios u
 LEFT JOIN propiedades p ON u.id = p.user_id
 GROUP BY u.mail_contact;
 
+Resultado:
+
++--------------------+-------------------+
+| mail_contact       | total_propiedades |
++--------------------+-------------------+
+| user-4436@mail.com |                 8 |
+| user-3349@mail.com |                 8 |
+| user-2418@mail.com |                 8 |
+| user-923@mail.com  |                 8 |
+| user-2821@mail.com |                 8 |
++--------------------+-------------------+
 
 ¿Cuántas casas y cuántos departamentos hay por estado?
 
